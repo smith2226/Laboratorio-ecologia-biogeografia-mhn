@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+/* styles.css - base styles for Laboratorio de Ecología y Biogeografía */
+:root{
+  --accent:#2f855a; /* green */
+  --accent-2:#276749;
+  --muted:#6b7280;
+  --bg:#ffffff;
+  --text:#0f172a;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;color:var(--text);background-color:var(--bg)}
+
+
+/* Improve link focus and active states */
+.site-nav a:focus{outline:2px dashed var(--accent);outline-offset:3px}
+.site-nav a.active{background:var(--accent);color:#fff}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+.site-header{position:relative;background:#fff;border-bottom:1px solid #e6e6e6;padding:.5rem 0;z-index:40}  
+.site-title{display:inline-block;margin:0;padding:.75rem 0;font-size:1.125rem}
+.site-title a{color:var(--accent);text-decoration:none}
+.site-logo{position:absolute;top:12px;right:12px;width:144px;height:auto}
+
+@media (max-width:480px){
+  .site-logo{width:104px;top:8px;right:8px}
+} 
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.25rem}
+.site-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.site-nav a{text-decoration:none;color:#1f2937;padding:.75rem;border-radius:4px}
+.site-nav a:hover{background:#f3f4f6}
+.hero{
+  padding:4.5rem 0;
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/team1.jpeg') center/cover no-repeat;
+  border-radius:6px;
+  color:#fff;
+  background-position:center center;
+  background-size:cover;
+}
+.hero h2{margin:8rem 0 0;color:#fff} 
+.hero p{margin-top:9rem;color:rgba(255,255,255,0.9)}
+
+.hero-decor{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:0.75rem}
+.hero-decor .line{display:block;border-radius:4px}
+.hero-decor .line--accent{width:84px;height:6px;background:var(--accent);box-shadow:0 2px 6px rgba(0,0,0,0.35)}
+.hero-decor .line--thin{width:44px;height:2px;background:rgba(255,255,255,0.6)}
+
+
+@media (min-width:1100px){
+  .hero{min-height:80vh}
+}
+.intro{padding-bottom:2rem;color:var(--muted)}
+
+/* News section */
+.news{padding:2rem 0}
+.news h3{margin:0 0 1rem;font-size:1.125rem;color:var(--text)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.news-item{background:#fff;border:1px solid #eaeaea;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(15,23,42,0.04)}
+.news-item a{color:inherit;text-decoration:none;display:block}
+.news-item img{width:100%;height:203px;object-fit:cover;display:block}
+.news-item h4{margin:.75rem 1rem 0;font-size:1rem} 
+.news-item p{margin:.25rem 1rem 1rem;color:var(--muted);font-size:.95rem}
+
+@media (max-width:520px){
+  .news-item img{height:169px}
+}
+
+.site-footer{border-top:1px solid #e6e6e6;padding:1rem 0;margin-top:2rem;color:var(--muted);font-size:.9rem}
+
+/* Responsive */
+@media (max-width:800px){
+  .nav-toggle{display:inline-block}
+  .site-nav{display:none}
+  .site-nav.open{display:block}
+  .site-nav ul{flex-direction:column;gap:0}
+  .container{padding:1rem}
+}  
+
+/* Utility */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Tables for publications */
+.pub-table{width:100%;border-collapse:collapse}
+.pub-table th,.pub-table td{padding:.5rem;border:1px solid #eaeaea;text-align:left}
+
+/* Publication list */
+.pub-list{list-style:none;margin:0;padding:0}
+.pub-list li{padding:.75rem 0;border-bottom:1px solid #eaeaea}
+.pub-journal{display:inline-block;color:var(--muted);font-size:.95rem;margin-left:.5rem}
+.pub-list time{font-weight:600;margin-right:.5rem;color:var(--muted)}
+.doi{color:var(--accent-2);text-decoration:none;margin-left:.5rem;word-break:break-all}
+.doi:hover{text-decoration:underline}
+
+/* Collaboration network */
+.collab-network{margin-top:2rem;background:#fff;border:1px solid #eaeaea;border-radius:8px;padding:1rem}
+.collab-network h3{margin-top:0}
+/* Two balanced columns using CSS columns; items avoid breaking across columns */
+.collab-list{list-style:none;margin:0;padding:0;column-count:2;column-gap:1.5rem}
+.collab-list li{padding:.5rem 0;border-bottom:1px solid #eaeaea;break-inside:avoid;-webkit-column-break-inside:avoid;-moz-column-break-inside:avoid}
+.collab-list li:last-child{border-bottom:none}
+.collab-list a{color:var(--accent-2);text-decoration:none}
+.collab-list a:hover{text-decoration:underline}
+
+@media (max-width:520px){
+  .collab-list{column-count:1}
+}
+
+/* Profile links (simple list for personal pages) */
+.profile-links{margin-top:1.25rem;background:#fff;border:1px solid #eaeaea;border-radius:8px;padding:0.75rem}
+.profile-links h2{margin:0 0 .5rem}
+.profile-links-list{list-style:none;margin:0;padding:0}
+.profile-links-list li{padding:.4rem 0;border-bottom:1px solid #eaeaea}
+.profile-links-list li:last-child{border-bottom:none}
+.profile-links-list a{color:var(--accent-2);text-decoration:none}
+.profile-links-list a:hover{text-decoration:underline}
+
+/* Team grid */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+.member{border:1px solid #eaeaea;padding:1rem;border-radius:6px;text-align:center}
+.member a{display:block;color:inherit;text-decoration:none}
+.member a:focus{outline:2px dashed var(--accent);outline-offset:4px}
+.member img{border-radius:50%;width:120px;height:120px;object-fit:cover}
+
+.team-section{margin-top:2rem}
+.team-section h3{margin:1rem 0 .5rem;font-size:1.125rem;color:var(--text)}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:1fr;gap:1rem}
+.project{border-left:4px solid var(--accent);padding:0.75rem;background:#fcfff8}
+
+/* Contact form */
+.contact-form{max-width:600px;display:grid;gap:.5rem}
+.contact-form input,.contact-form textarea{padding:.5rem;border:1px solid #d1d5db;border-radius:4px}
+.contact-form button{background:var(--accent);color:#fff;border:0;padding:.5rem 1rem;border-radius:4px}
+
+.btn-read{display:inline-block;background:var(--accent);color:#fff;padding:.5rem .9rem;border-radius:6px;text-decoration:none;font-weight:600;border:0;box-shadow:0 2px 6px rgba(47,133,90,0.12)}
+.btn-read:hover{background:var(--accent-2)}
+.btn-read:focus{outline:2px dashed var(--accent);outline-offset:4px}
+
+.media{margin-top:1rem}
+.media h3{margin:.5rem 0;font-size:1rem;color:var(--text)}
+.media audio, .media video{width:100%;max-width:640px;display:block;margin-top:.5rem}
+
+/* Contact sections layout */
+.contact-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.contact-sections section{background:#fff;border:1px solid #eaeaea;border-radius:8px;padding:1rem}
+.contact-sections h3{margin-top:0}
+.social-links{list-style:none;padding:0;margin:0;display:flex;gap:.5rem;flex-wrap:wrap}
+.social-links li{margin:0}
+.social-links a{display:inline-block;padding:.35rem .6rem;border-radius:4px;background:#f3f4f6;color:#1f2937;text-decoration:none}
+.social-links a:hover{text-decoration:underline}
+.subscribe-form{display:flex;gap:.5rem;margin-top:.5rem}
+.subscribe-form input{flex:1;padding:.5rem;border:1px solid #d1d5db;border-radius:4px}
+.subscribe-form button{background:var(--accent);color:#fff;border:0;padding:.5rem 1rem;border-radius:4px}
+
+/* Small screens: make footer centered */
+@media (max-width:480px){
+  .site-title{font-size:1rem}
+  .hero h2{font-size:1.125rem}
+}
